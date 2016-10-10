@@ -11,8 +11,10 @@ module Rom
         end
       end
 
-      class UserRepo < ROM::Repository[:users]
+      class UsersRepo < ROM::Repository[:users]
         commands :create, update: :by_pk, delete: :by_pk
+
+        relations :tasks
 
         def count
           users.count

@@ -3,7 +3,7 @@ require 'rom-repository'
 module Rom
   module Test
     module Repositories
-      class ProjectRepo < Rom::Repository[:projects]
+      class ProjectsRepo < Rom::Repository[:projects]
       end
     end
   end
