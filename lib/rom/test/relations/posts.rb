@@ -1,16 +1,12 @@
-require 'rom-sql'
+module Test
+  module Relations
+    class Posts < ROM::Relation[:sql]
+      schema do
+        attribute :user_id, Types::ForeignKey(:users)
+      end
 
-module Rom
-  module Test
-    module Relations
-      class Posts < ROM::Relation[:sql]
-        schema do
-          attribute :user_id, Types::ForeignKey(:users)
-        end
-
-        view(:listing, [:id, :user_id, :title, :published_at]) do
-          select(:id, :title, :user_id, :published_at).order(:published_at)
-        end
+      view(:listing, [:id, :user_id, :title, :published_at]) do
+        select(:id, :title, :user_id, :published_at).order(:published_at)
       end
     end
   end

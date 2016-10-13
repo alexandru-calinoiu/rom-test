@@ -14,9 +14,16 @@ module Rom
             foreign_key :user_id, :users
             column :title, String, null: false
           end
+
+          conf.default.create_table(:posts) do
+            primary_key :id
+            foreign_key :user_id, :users
+            column :title, String, null: false
+            column :published_at, Date, null: false
+          end
         end
 
-        config.auto_registration(File.join Rom.root, 'rom/test/relations')
+        config.auto_registration(File.join(Rom.root, 'rom/test'))
         ROM.container(config)
       end
     end
