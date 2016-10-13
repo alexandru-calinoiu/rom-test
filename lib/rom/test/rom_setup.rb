@@ -2,9 +2,7 @@ module Rom
   module Test
     class RomSetup
       def setup
-        ROM.container(:sql, 'sqlite:memory') do |conf|
-          require 'rom/test/relations/posts'
-
+        config = ROM::Configuration.new(:sql, 'sqlite:memory') do |conf|
           conf.default.create_table(:users) do
             primary_key :id
             column :name, String, null: false
@@ -17,6 +15,9 @@ module Rom
             column :title, String, null: false
           end
         end
+
+        config.auto_registration(File.join Rom.root, 'rom/test/relations')
+        ROM.container(config)
       end
     end
   end
