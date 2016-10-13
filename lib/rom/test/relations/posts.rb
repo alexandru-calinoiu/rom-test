@@ -1,7 +1,7 @@
 module Test
   module Relations
     class Posts < ROM::Relation[:sql]
-      schema do
+      schema(:posts, infer: true) do
         attribute :user_id, Types::ForeignKey(:users)
       end
 

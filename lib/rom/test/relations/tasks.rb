@@ -1,7 +1,7 @@
 module Test
   module Relations
     class Tasks < ROM::Relation[:sql]
-      schema(infer: true) do
+      schema(:tasks, infer: true) do
         associations do
           belongs_to :user
         end

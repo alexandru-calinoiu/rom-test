@@ -1,7 +1,7 @@
 module Test
   module Relations
     class Users < ROM::Relation[:sql]
-      schema(infer: true) do
+      schema(:users, infer: true) do
         associations do
           has_many :tasks
         end
