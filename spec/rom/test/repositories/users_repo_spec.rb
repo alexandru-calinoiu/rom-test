@@ -25,4 +25,18 @@ RSpec.describe Rom::Test::Repositories::UsersRepo do
 
     expect(users_repo.aggregate(:tasks).one[:tasks].count).to eq 1
   end
+
+  it 'will update a user' do
+    user = users_repo.create(name: 'Ion', email: 'gheo@email.com')
+    changeset = users_repo
+                  .changeset(user.id, name: 'Gheo')
+                  .map(:add_timestamps)
+
+    users_repo.update(user.id, changeset)
+    updated_user = users_repo.by_id(user.id)
+
+    expect(updated_user.name).to eq 'Gheo'
+    expect(updated_user.created_at).not_to be_nil
+    expect(updated_user.updated_at).not_to be_nil
+  end
 end

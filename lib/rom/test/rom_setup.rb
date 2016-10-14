@@ -8,6 +8,8 @@ module Rom
             primary_key :id
             column :name, String, null: false
             column :email, String, null: false
+            column :created_at, DateTime
+            column :updated_at, DateTime
           end
 
           conf.default.create_table(:tasks) do
