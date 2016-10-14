@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe 'UsersRepo' do
+RSpec.describe Rom::Test::Repositories::UsersRepo do
   let(:rom) { Rom::Test::RomSetup.new.setup }
-  let(:users_repo) { Rom::Test::Repositories::UsersRepo.new(rom) }
+  let(:users_repo) { described_class.new(rom) }
   let(:tasks_repo) { Rom::Test::Repositories::TasksRepo.new(rom) }
 
   it 'will create/update/delete a user' do
