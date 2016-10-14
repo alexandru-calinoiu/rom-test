@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require 'rom/test/version'
 require 'rom'
+require 'awesome_print'
 
 module Rom
   def self.root
@@ -12,4 +13,3 @@ module Rom
     autoload :Repositories, 'rom/test/repositories'
   end
 end
-

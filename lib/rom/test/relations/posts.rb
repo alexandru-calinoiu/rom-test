@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Test
   module Relations
     class Posts < ROM::Relation[:sql]
@@ -6,7 +7,7 @@ module Test
       end
 
       view(:listing, [:id, :user_id, :title, :published_at]) do
-        select(:id, :title, :user_id, :published_at).order(:published_at)
+        select(:id, :title, :user_id, :published_at).order(:published_at).reverse
       end
     end
   end
