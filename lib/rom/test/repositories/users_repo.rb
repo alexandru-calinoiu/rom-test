@@ -17,6 +17,10 @@ module Rom
 
         relations :tasks
 
+        def create_with_tasks(user)
+          command(:create, aggregate(:tasks)).call(user)
+        end
+
         def count
           users.count
         end

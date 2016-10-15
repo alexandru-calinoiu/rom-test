@@ -39,4 +39,11 @@ RSpec.describe Rom::Test::Repositories::UsersRepo do
     expect(updated_user.created_at).not_to be_nil
     expect(updated_user.updated_at).not_to be_nil
   end
+
+  it 'will create with tasks' do
+    users_repo.create_with_tasks(name: 'Ion', email: 'ion@email.com', tasks: [{ title: 'Task1' }, { title: 'Task2' }])
+    tasks = tasks_repo.tasks.to_a
+
+    expect(tasks.count).to eq 2
+  end
 end
