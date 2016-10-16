@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 module Rom
-  module MemoryTest
+  module ArrayTest
     module Relations
-      class Users < ROM::Relation[:memory]
+      class Users < ROM::Relation[:array]
         dataset :users
 
         def by_name(name)
-          restrict(name: name)
+          select { |user| user[:name] == name }
         end
       end
     end

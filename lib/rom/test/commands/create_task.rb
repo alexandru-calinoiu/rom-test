@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Test
   module Commands
     class CreateTask < ROM::Commands::Create[:sql]

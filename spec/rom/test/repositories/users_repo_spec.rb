@@ -29,8 +29,8 @@ RSpec.describe Rom::Test::Repositories::UsersRepo do
   it 'will update a user' do
     user = users_repo.create(name: 'Ion', email: 'gheo@email.com')
     changeset = users_repo
-                  .changeset(user.id, name: 'Gheo')
-                  .map(:add_timestamps)
+                .changeset(user.id, name: 'Gheo')
+                .map(:add_timestamps)
 
     users_repo.update(user.id, changeset)
     updated_user = users_repo.by_id(user.id)
