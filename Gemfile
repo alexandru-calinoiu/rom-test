@@ -7,6 +7,7 @@ gemspec
 gem 'rom'
 gem 'rom-sql'
 gem 'rom-repository'
+gem 'dry-struct'
 gem 'sqlite3'
 
 group :development do

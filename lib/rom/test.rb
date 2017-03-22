@@ -11,5 +11,6 @@ module Rom
   module Test
     autoload :RomSetup, 'rom/test/rom_setup'
     autoload :Repositories, 'rom/test/repositories'
+    autoload :Types, 'rom/test/types'
   end
 end
